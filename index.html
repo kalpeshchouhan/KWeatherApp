@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather-app</title>
+    <!-- icons  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <!-- Main container -->
+    <div class="maincontainer">
+      <!-- container -->
+      <div class="container">
+        <!-- In container have two inside container 1: insidecontainerone 2:insidecontainertwo -->
+        <div class="insidecontainerone">
+          <!-- heading or name of appp -->
+          <h3 class="name">K-Weather-App</h3>
+
+          <div class="search-location-container">
+            <input
+              class="search"
+              id="locationsearch"
+              type="text"
+              placeholder=" search..."
+            />
+            <button
+              class="searchbutton"
+              onclick="searchloction()"
+              onkeypress="searchloction()"
+            >
+              <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button class="searchbutton" id="getlocation">
+              <i class="fa-sharp fa-solid fa-location-dot"></i>
+            </button>
+          </div>
+
+          <div class="ddt">
+            <p class="content font" id="datetime">--- | --- | --- | ---</p>
+          </div>
+
+          <div class="location">
+            <p class="citylocation font" id="cityname">
+              <i class="bx bx-location-plus"></i> -------
+            </p>
+            <p class="weatherconditon font" id="weathercondition">---</p>
+          </div>
+
+          <div class="degree">
+            <div class="icontone">
+              <img id="img" src="" />
+            </div>
+            <div class="iconttow o">
+              <p class="dig font" id="temp">-</p>
+              <span
+                ><sup><sup>O</sup></sup></span
+              >
+            </div>
+          </div>
+
+          <div class="sumriseanddownsection">
+            <p class="risesize font">
+              <i class="bx bx-sun bx-tada"></i> Rise:
+              <span id="sunrise">--</span> <span>AM</span> |
+              <i class="bx bxs-sun bx-flashing"></i> Set:
+              <span id="sunset">--</span><span> PM</span>
+            </p>
+          </div>
+
+          <div class="detailsectione">
+            <!-- inside contaner one -->
+            <div class="setone">
+              <div class="o">
+                <p class="mar font">
+                  <i class="bx bxs-droplet bx-flashing"></i> Humidity:
+                  <span id="humidity">--</span>
+                </p>
+                <span class="mar">%</span>
+              </div>
+
+              <div class="o">
+                <p class="mar font">
+                  <i class="bx bxs-thermometer bx-tada"></i> Feels-Like:
+                  <span id="feelslike">--</span>
+                </p>
+                <span class="mar"
+                  ><sup><sup>o</sup></sup></span
+                >
+              </div>
+              <div class="o">
+                <p class="mar font">
+                  <i class="bx bxl-tailwind-css bx-fade-left"></i> Wind:
+                  <span id="wind">-</span>
+                  <span class="mar">km/h</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- inside container two -->
+            <div class="settwo">
+              <div class="o">
+                <p class="mar font">
+                  <i class="bx bx-arrow-from-bottom"></i> Max-Temp:
+                  <span id="maxtemp">--</span>
+                </p>
+                <span class="mar"
+                  ><sup><sup>o</sup></sup></span
+                >
+              </div>
+              <div class="o">
+                <p class="mar font">
+                  <i class="bx bxs-arrow-from-top"></i> Min-Temp:
+                  <span id="mintemp">--</span>
+                </p>
+                <span class="mar"
+                  ><sup><sup>o</sup></sup></span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- city container -->
+          <div class="citys">
+            <button class="cname font" onclick="cityselected('delhi')">
+              Delhi
+            </button>
+            <button class="cname font" onclick="cityselected('bengaluru')">
+              Bengaluru
+            </button>
+            <button class="cname font" onclick="cityselected('Bilaspur')">
+              Bilaspur
+            </button>
+            <button class="cname font" onclick="cityselected('Mumbai')">
+              Mumbai
+            </button>
+          </div>
+        </div>
+        <!-- insidecontainerone ends -->
+
+        <!-- insidecontainertwo starts -->
+        <div class="insidecontainertwo">
+          <!-- container one -->
+          <div class="seone">
+            <!-- container one inside first container-->
+            <div class="insideseone">
+              <h5 class="heading font">HOURLY-FORCAST</h5>
+            </div>
+
+            <!--  container one inside second container-->
+            <div class="scroll-container">
+              <div class="insidesetwo" id="hrtimeweather"></div>
+              <!-- container one inside second container ends -->
+            </div>
+          </div>
+
+          <!-- container one ends -->
+
+          <!-- container two  -->
+          <div class="setwo">
+            <!-- container two inside first container -->
+            <div class="insideseone">
+              <h5 class="heading font">DAILY-FORCAST</h5>
+            </div>
+            <!-- container two inside second container -->
+            <div class="scroll-container">
+              <div class="insidesetwo" id="daliyforcastdiv"></div>
+            </div>
+            <!-- container two inside second container end-->
+          </div>
+        </div>
+        <!-- container two end -->
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
